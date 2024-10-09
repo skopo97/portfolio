@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="tictactoe.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiktak</title>
+    <style>
+      .popup {
+        position: fixed;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .square {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="infoScreen" id="info">
+      <h1 id="h1CurrentPlayer"></h1>
+    </div>
+    <div class="container">
+      <div class="topRow">
+        <div class="square" id="square1" onclick="place('square1')"></div>
+        <div class="square" id="square2" onclick="place('square2')"></div>
+        <div class="square" id="square3" onclick="place('square3')"></div>
+      </div>
+      <div class="middleRow">
+        <div class="square" id="square4" onclick="place('square4')"></div>
+        <div class="square" id="square5" onclick="place('square5')"></div>
+        <div class="square" id="square6" onclick="place('square6')"></div>
+      </div>
+      <div class="bottomRow">
+        <div class="square" id="square7" onclick="place('square7')"></div>
+        <div class="square" id="square8" onclick="place('square8')"></div>
+        <div class="square" id="square9" onclick="place('square9')"></div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup" style="display: none"></div>
+    <script>
+      let currentPlayer = "X";
+
+      function place(squareId) {
+        let square = document.getElementById(squareId);
+        if (square.innerHTML !== "") {
+          showPopup("Square already taken");
+          return;
+        }
+
+        square.innerHTML = currentPlayer;
+        if (currentPlayer === "X") {
+          currentPlayer = "O";
+        } else {
+          currentPlayer = "X";
+        }
+
+        let allSquaresFilled = true;
+        for (let i = 1; i <= 9; i++) {
+          if (document.getElementById("square" + i).innerHTML === "") {
+            allSquaresFilled = false;
+            break;
+          }
+        }
+
+        if (allSquaresFilled) {
+          showPopup("All squares full, checking for winner");
+        }
+
+        document.getElementById("h1CurrentPlayer").textContent =
+          "Current player: " + currentPlayer;
+      }
+
+      function showPopup(message) {
+        let popup = document.getElementById("popup");
+        popup.textContent = message;
+        popup.style.display = "block";
+
+        setTimeout(function () {
+          popup.style.display = "none";
+        }, 4000);
+      }
+    </script>
+  </body>
+</html>
