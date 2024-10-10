@@ -1,11 +1,27 @@
 #include <iostream>
 #include <utility>
+#include <limits>
+
+int maybe{};
 
 int getInteger()
 {
-    int a;
-    std::cin >> a;
-    return a;
+    int a{};
+
+    while (true)
+    {
+        std::cin >> a;
+        if (std::cin.fail())
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Enter a valid integer: ";
+        }
+        else
+        {
+            return a;
+        }
+    }
 }
 
 void swapValues(int &a, int &b)
@@ -16,10 +32,12 @@ void swapValues(int &a, int &b)
 int main()
 {
 
-    std::cout << "Enter an integer: \n";
+    [[maybe_unused]] int maybe{};
+
+    std::cout << "Enter an integer: ";
     int integer{getInteger()};
 
-    std::cout << "Enter a larger integer: \n";
+    std::cout << "Enter a larger integer: ";
 
     int largerInteger{getInteger()};
 
