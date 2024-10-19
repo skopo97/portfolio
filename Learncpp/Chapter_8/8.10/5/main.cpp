@@ -1,37 +1,41 @@
-// h/t to reader Waldo for suggesting this quiz
 #include <iostream>
 
-void fizzbuzz(int count)
+int fizzbuzz(int value)
 {
-    for (int i{1}; i <= count; ++i)
+    for (int i{1}; i <= value; ++i)
     {
-        bool printed{false};
+        bool seen{false};
+
         if (i % 3 == 0)
         {
             std::cout << "fizz";
-            printed = true;
+            seen = true;
         }
+
         if (i % 5 == 0)
         {
             std::cout << "buzz";
-            printed = true;
+            seen = true;
         }
+
         if (i % 7 == 0)
         {
             std::cout << "pop";
-            printed = true;
+            seen = true;
         }
 
-        if (!printed)
-            std::cout << i;
+        if (!seen)
+            std::cout
+                << i;
 
         std::cout << '\n';
-    } // end for loop
+    }
+
+    return 0;
 }
 
 int main()
 {
     fizzbuzz(150);
-
     return 0;
 }
