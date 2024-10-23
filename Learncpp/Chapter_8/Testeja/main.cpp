@@ -1,13 +1,26 @@
 #include <iostream>
+#include <random>
+#include <chrono>
 
 int main()
 {
 
-    int number{15};
+    // std::mt19937 mt{static_cast<std::mt19937::result_type>(
+    //    std::chrono::steady_clock::now().time_since_epoch().count())};
 
-    if (number % 3 == 0 && number % 5 == 0)
+    std::mt19937 mt{std::random_device{}()};
+
+    std::uniform_int_distribution die6{1, 6};
+    for (int i{1}; i <= 10; i++)
     {
-        std::cout << "Fizzbuzz";
+        /* code */
+        std::cout << die6(mt) << '\t';
+
+        if (i % 1 == 0)
+        {
+            std::cout << die6(mt) << '\n';
+        }
     }
-    std::cout << "fail";
+
+    return 0;
 }
