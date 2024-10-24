@@ -22,18 +22,19 @@ std::vector<int> twoSum(std::vector<int> &nums, int target)
 
 int main()
 {
-    std::vector<int> nums = {10, 5, 6, 50, 5};
+    std::vector<int> nums;
 
-    std::vector<int> output = twoSum(nums, 55);
-
-    if (!output.empty())
+    std::cout << "nums = ";
+    for (int i = 0; i < 4; i++)
     {
-        std::cout << "Indices: " << output[0] << ", " << output[1] << std::endl;
-    }
-    else
-    {
-        std::cout << "No two sum solution found." << std::endl;
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
     }
 
-    return 0;
+    int target{};
+    std::cout << "target = ";
+    std::cin >> target;
+
+    twoSum(nums, target);
 }
