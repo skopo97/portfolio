@@ -32,8 +32,8 @@ std::vector<int> twoSum(std::vector<int> &numbers, int target)
 
 int main()
 {
-    std::vector<int> testCases = {5, 25, 75};
-    std::vector<int> result = twoSum(testCases, 100);
+    std::vector<int> testCases = {6, 25, 75, 55, 5, 9, 12};
+    std::vector<int> result = twoSum(testCases, 14);
 
     for (int i : result)
     {
