@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+//#include <algorithm>
 
 std::vector<int> twoSum(std::vector<int> &numbers, int target)
 {
@@ -13,8 +14,8 @@ std::vector<int> twoSum(std::vector<int> &numbers, int target)
 
         if (numbers[i] + numbers[j] == target)
         {
-            newVector.emplace_back(static_cast<int>(i + 1));
-            newVector.emplace_back(static_cast<int>(j + 1));
+            newVector.emplace_back(static_cast<int>(i));
+            newVector.emplace_back(static_cast<int>(j));
 
             return newVector;
         }
@@ -32,11 +33,14 @@ std::vector<int> twoSum(std::vector<int> &numbers, int target)
 
 int main()
 {
-    std::vector<int> testCases = {6, 25, 75, 55, 5, 9, 12};
-    std::vector<int> result = twoSum(testCases, 14);
+    std::vector<int> testCases = {1,5,7,11,12,19,25};
+    //std::sort(testCases.begin(), testCases.end());
+
+    std::vector<int> result = twoSum(testCases, 19);
 
     for (int i : result)
     {
-        std::cout << i;
+        std::cout << i << " ";
     }
+
 }
