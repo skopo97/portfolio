@@ -1,7 +1,31 @@
 #include <iostream>
+#include <string>
+
+enum class MonsterType
+{
+    Dragon,
+    Goblin
+};
+
+std::string getMonsterType(MonsterType type)
+{
+    if (type == MonsterType::Dragon)
+    {
+        return "Dragon";
+    }
+    else if (type == MonsterType::Goblin)
+    {
+        return "Goblin";
+    }
+    else
+    {
+        return "Unknown";
+    }
+}
 
 struct monster
 {
+    MonsterType type;
     int hp{};
     int attack{};
     int defense{};
@@ -9,25 +33,28 @@ struct monster
 
 std::ostream &operator<<(std::ostream &out, const monster &m)
 {
-    out << "Monster has " << m.hp << " hp, " << m.attack << " attack, " << m.defense << " defense\n";
+    out << getMonsterType(m.type) << " has " << m.hp << " hp, " << m.attack << " attack, " << m.defense << " defense\n";
     return out;
 }
 
 int main()
 {
-    monster Dragon{300, 150, 50};
-    monster Goblin{};
-    Dragon.hp = 300;
-    Goblin.hp = 100;
+    monster Dragon{MonsterType::Dragon, 300, 150, 100};
+    monster Goblin{MonsterType::Goblin, 100, 50, 50};
+    std::cout << Dragon;
+    std::cout << Goblin;
 
-    if (Dragon.hp > Goblin.hp)
+    std::cout << "Fight!\n";
+    std::cout << "Dragon attacks Goblin and dealt " << Dragon.attack << " damage\n";
+    Goblin.hp -= Dragon.attack - Goblin.defense;
+    std::cout << "Goblin lost " << Dragon.attack - Goblin.defense << " hp\n";
+
+    if (Goblin.hp <= 0)
     {
-        std::cout << "Dragon wins!\n";
+        std::cout << "Goblin is dead\n";
     }
     else
     {
-        std::cout << "Goblin wins!\n";
+        std::cout << "Goblin has " << Goblin.hp << " hp left\n";
     }
-
-    std::cout << Dragon;
 }
