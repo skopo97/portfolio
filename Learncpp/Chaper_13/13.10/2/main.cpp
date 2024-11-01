@@ -3,8 +3,8 @@
 
 struct fraction
 {
-    int numerator;
-    int denominator;
+    int numerator{};
+    int denominator{};
 };
 
 void checkInput()
