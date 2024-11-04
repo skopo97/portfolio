@@ -17,9 +17,3 @@ std::string getMonsterType(MonsterType type)
         return "Unknown";
     }
 }
-
-void takeDamage(monster &m, int damage)
-{
-    m.hp -= damage;
-    std::cout << getMonsterType(m.type) << " lost " << damage << " hp and now has " << m.hp << " hp\n";
-}

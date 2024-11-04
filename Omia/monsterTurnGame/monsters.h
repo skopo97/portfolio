@@ -19,6 +19,5 @@ struct monster
 };
 
 std::string getMonsterType(MonsterType type);
-void takeDamage(monster &m, int damage);
 
 #endif // MONSTERS_H
