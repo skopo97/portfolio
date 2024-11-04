@@ -12,5 +12,6 @@ std::ostream &operator<<(std::ostream &out, const monster &m)
 
 int main()
 {
-    std::cout << dragon;
+
+        return 0;
 }
