@@ -56,10 +56,11 @@ int getDenominator()
     }
 }
 
-void multiplyFraction(const fraction<int> &frac1, const fraction<int> &frac2)
+template <typename T>
+void multiplyFraction(const fraction<T> &frac1, const fraction<T> &frac2)
 {
-    const int resultNumer = frac1.numerator * frac2.numerator;
-    const int resultDenom = frac1.denominator * frac2.denominator;
+    const T resultNumer = frac1.numerator * frac2.numerator;
+    const T resultDenom = frac1.denominator * frac2.denominator;
     std::cout << '\n'
               << "The result of the multiplication is: " << resultNumer << '/' << resultDenom << '\n';
 }
