@@ -1,10 +1,11 @@
 #include <iostream>
 #include <limits>
 
+template <typename T>
 struct fraction
 {
-    int numerator{};
-    int denominator{};
+    T numerator{};
+    T denominator{};
 };
 
 void checkInput()
@@ -55,7 +56,7 @@ int getDenominator()
     }
 }
 
-void multiplyFraction(const fraction &frac1, const fraction &frac2)
+void multiplyFraction(const fraction<int> &frac1, const fraction<int> &frac2)
 {
     const int resultNumer = frac1.numerator * frac2.numerator;
     const int resultDenom = frac1.denominator * frac2.denominator;
@@ -68,9 +69,9 @@ int main()
 
     // fraction frac1{getNumerator(), getDenominator()};
     std::cout << '\n';
-    fraction frac2{getNumerator(), getDenominator()};
+    fraction<int> frac2{getNumerator(), getDenominator()};
 
-    fraction frac3{getNumerator(), getDenominator()};
+    fraction<int> frac3{getNumerator(), getDenominator()};
 
     multiplyFraction(frac2, frac3);
 }
