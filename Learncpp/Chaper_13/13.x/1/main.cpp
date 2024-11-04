@@ -1,47 +1,50 @@
 #include <iostream>
 #include <string>
-
-enum class monsterType
+struct Monster
 {
-    ogre,
-    dragon,
-    orc,
-    giant_spider,
-    slime
-};
 
-struct monster
-{
+    enum monsterType
+    {
+        ogre,
+        dragon,
+        orc,
+        giant_spider,
+        slime
+    };
+
     monsterType type{};
     std::string name{};
     int health{};
 };
 
-std::string getMonsterType(monsterType t)
+std::string getMonsterType(Monster::monsterType type)
 {
-    if (t == monsterType::ogre)
+    switch (type)
+    {
+    case Monster::ogre:
         return "Ogre";
-    if (t == monsterType::dragon)
+    case Monster::dragon:
         return "Dragon";
-    if (t == monsterType::orc)
+    case Monster::orc:
         return "Orc";
-    if (t == monsterType::giant_spider)
+    case Monster::giant_spider:
         return "Giant Spider";
-    if (t == monsterType::slime)
+    case Monster::slime:
         return "Slime";
+    }
     return "Unknown";
 }
 
-void printMonster(monster &m)
+void printMonster(const Monster &monster)
 {
-    std::cout << "This " << getMonsterType(m.type) << " is named " << m.name << " and has " << m.health << " health.\n";
+    std::cout << "This " << getMonsterType(monster.type) << " is named " << monster.name << " and has " << monster.health << " health.\n";
 }
 
 int main()
 {
-    monster torg{monsterType::ogre, "Torg", 145};
-    monster blurp{monsterType::slime, "Blurp", 23};
+    Monster ogre{Monster::ogre, "Torg", 145};
+    Monster slime{Monster::slime, "Blurp", 23};
 
-    printMonster(torg);
-    printMonster(blurp);
+    printMonster(ogre);
+    printMonster(slime);
 }
