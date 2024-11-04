@@ -15,12 +15,13 @@ void checkInput()
     std::cout << "Invalid input. Please try again.\n";
 }
 
-int getNumerator()
+template <typename T>
+T getNumerator()
 {
-    int numerator;
+    T numerator;
     while (true)
     {
-        std::cout << "Enter a integer value for the numerator: ";
+        std::cout << "Enter a value for the numerator: ";
         std::cin >> numerator;
         if (std::cin.fail())
         {
@@ -32,13 +33,13 @@ int getNumerator()
         }
     }
 }
-
-int getDenominator()
+template <typename T>
+T getDenominator()
 {
-    int denominator{};
+    T denominator{};
     while (true)
     {
-        std::cout << "Enter a integer value for the denominator: ";
+        std::cout << "Enter a value for the denominator: ";
         std::cin >> denominator;
         if (std::cin.fail())
         {
@@ -70,9 +71,9 @@ int main()
 
     // fraction frac1{getNumerator(), getDenominator()};
     std::cout << '\n';
-    fraction<int> frac2{getNumerator(), getDenominator()};
+    fraction<double> frac2{getNumerator<double>(), getDenominator<double>()};
 
-    fraction<int> frac3{getNumerator(), getDenominator()};
+    fraction<double> frac3{getNumerator<double>(), getDenominator<double>()};
 
     multiplyFraction(frac2, frac3);
 }
