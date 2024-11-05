@@ -1,6 +1,9 @@
 #include <utility>
 #include <iostream>
 
+using speedOfLight = float;
+speedOfLight c{299792.458};
+
 template <typename T>
 struct foo
 {
