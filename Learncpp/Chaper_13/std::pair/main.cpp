@@ -1,27 +1,24 @@
 #include <utility>
 #include <iostream>
 
-template <typename T, typename U>
-struct Pair
+template <typename T>
+struct foo
 {
-    T first;
-    U second;
+    T bar{};
 };
-
-template <typename U = int, typename V = double, typename W = double>
-struct Triple_d
+template <typename T>
+T getBar()
 {
-    U first;
-    V second;
-    W third;
-};
+    T bar{};
+    std::cin >> bar;
+    return bar;
+}
 
 int main()
 {
-    Pair p1{1, 2.3f};
 
-    std::cout << p1.first << '\n';
-    std::cout << p1.second << '\n';
+    // Is there a way to make getBar working without specifying it's type?
+    foo newFoo{getBar<int>()};
 
-    Triple_d{2, 3, 6.654};
+    std::cout << newFoo.bar << '\n';
 }
