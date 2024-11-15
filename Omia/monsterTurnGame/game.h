@@ -4,9 +4,9 @@
 
 // Your declarations here
 
-void chooseYourMonster(monster &chosenMonster);
-void chooseYourEnemyMonster(monster &enemyMonster);
+void chooseYourMonster(monster& chosenMonster);
+void chooseYourEnemyMonster(monster& enemyMonster);
 
-void attack(monster &attacker, monster &defender);
+void attack(monster& attacker, monster& defender);
 
-#endif // GAME_H
+#endif  // GAME_H
