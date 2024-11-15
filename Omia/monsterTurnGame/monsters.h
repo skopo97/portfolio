@@ -1,5 +1,6 @@
 #ifndef MONSTERS_H
 #define MONSTERS_H
+#include <ostream>
 #include <string>
 
 // Your code here
@@ -12,6 +13,8 @@ class monster {
   int hp{};
   int attack{};
   int defense{};
+
+  std::string s = "Hey";
 };
 
 std::string getMonsterType(MonsterType type);

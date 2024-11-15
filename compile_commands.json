@@ -1,0 +1,7 @@
+[
+    {
+        "directory": "${fileDirname}",
+        "command": "clang++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++23 -g main.cpp -o main",
+        "file": "main.cpp"
+    }
+]
