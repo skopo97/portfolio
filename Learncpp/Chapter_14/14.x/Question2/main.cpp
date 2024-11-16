@@ -21,15 +21,17 @@ public:
 
     //Multiply
     Fraction multiply(const Fraction &f2) const
-     {
+    {
         return Fraction{ m_numerator * f2.m_numerator, m_denominator * f2.m_denominator };
-     }
-
+    }
+    //print
     void printFraction() const {
         std::cout << m_numerator << '/' << m_denominator << '\n';
     }
 
 };
+
+
 
 
 int main()
