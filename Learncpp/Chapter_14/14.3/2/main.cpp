@@ -3,7 +3,7 @@
 // Provide the definition for IntPair and the print() member function here
 
 class IntPair {
- public:
+public:
   int m_firstNum{};
   int m_secondNum{};
 
@@ -11,7 +11,7 @@ class IntPair {
     std::cout << prefix << "(" << m_firstNum << ", " << m_secondNum << ")\n";
   }
 
-  bool isEqual(IntPair p) const {
+  bool isEqual(IntPair p) {
     if (m_firstNum == p.m_firstNum && m_secondNum == p.m_secondNum)
       return true;
     else

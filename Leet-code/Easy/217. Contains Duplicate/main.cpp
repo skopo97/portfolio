@@ -1,28 +1,23 @@
 #include <algorithm>
-#include <vector>
 #include <iostream>
+#include <vector>
 
+bool containsDuplicate(std::vector<int> &nums) {
+  bool duplicate{false};
 
-bool containsDuplicate(std::vector<int> &nums){
-    bool  duplicate{false};
+  std::sort(nums.begin(), nums.end());
 
-    std::sort(nums.begin(), nums.end());
-
-    for (size_t i = 1; i < nums.size(); ++i)
-      {
-        if(nums[i] == nums[i - 1]){
-            return true;
-        }
+  for (size_t i = 1; i < nums.size(); ++i) {
+    if (nums[i] == nums[i - 1]) {
+      return true;
     }
+  }
 
-
-    return duplicate;
+  return duplicate;
 }
 
+int main() {
+  std::vector<int> nums{1, 2, 3, 1};
 
-int main(){
-    std::vector<int> nums {1,2,3,1};
-
-    std::cout << containsDuplicate(nums);
-
+  std::cout << containsDuplicate(nums);
 }
