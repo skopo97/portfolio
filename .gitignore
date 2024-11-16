@@ -6,13 +6,9 @@ cmake-build-debug/
 # User settings #
 .vscode/
 .idea/
+compile_commands.json
 
 # OS-generated files #
-.DS_Store
-.DS_Store?
 ._*
-.Spotlight-V100
 .Trashes
-ehthumbs.db
-Thumbs.db
 *.idx
